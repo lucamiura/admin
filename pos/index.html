@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atom POS - Admin Panel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <button class="nav-btn active" onclick="showSection('products',this)">Products</button>
+    <button class="nav-btn" onclick="showSection('inventory',this)">Inventory</button>
+    <button class="nav-btn" onclick="openAddModal()">Add Product</button>
+</header>
+
+<div class="container">
+
+<section id="productsSection">
+<h2>Manage Products</h2>
+<input type="text" id="searchInput" placeholder="Search products...">
+<div id="productsGrid"></div>
+</section>
+
+<section id="inventorySection" style="display:none;">
+<h2>Inventory Overview</h2>
+<div id="inventoryList"></div>
+</section>
+
+</div>
+
+<!-- VIEW PRODUCT MODAL -->
+<div class="modal" id="viewModal">
+<div class="modal-content large">
+<div id="viewContent"></div>
+<button onclick="closeViewModal()" style="background:#444;margin-top:15px;">Close</button>
+</div>
+</div>
+
+<!-- ADD PRODUCT MODAL -->
+<div class="modal" id="addModal">
+<div class="modal-content">
+<h3>Add New Product</h3>
+<input type="text" id="newName" placeholder="Name">
+<input type="text" id="newDesc" placeholder="Description">
+<input type="number" id="newPrice" placeholder="Price">
+<input type="number" id="newStock" placeholder="Stock">
+<input type="file" id="newImage" accept="image/*">
+<button onclick="addNewProduct()">Add</button>
+<button onclick="closeAddModal()" style="background:#444;">Cancel</button>
+</div>
+</div>
+
+<!-- EDIT PRODUCT MODAL -->
+<div class="modal" id="editModal">
+<div class="modal-content">
+<h3>Edit Product</h3>
+<input type="text" id="editName">
+<input type="text" id="editDesc">
+<input type="number" id="editPrice">
+<input type="number" id="editStock">
+<button onclick="saveEdit()">Save Changes</button>
+<button onclick="closeEditModal()" style="background:#444;">Cancel</button>
+</div>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
